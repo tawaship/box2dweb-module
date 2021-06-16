@@ -1,0 +1,14 @@
+{
+  "include": ["src/index.ts"],
+  "compilerOptions": {
+    "target": "ES6",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "outDir": "./types"
+  },
+  "files": [
+    "types/box2dweb.d.ts"
+  ],
+  "exclude": ["node_modules", "src/**/*.d.ts"]
+}

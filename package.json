@@ -1,0 +1,41 @@
+{
+  "name": "@tawaship/box2dweb-module",
+  "version": "1.0.0",
+  "description": "A module for exporting box2dweb@2.1.0-b.",
+  "main": "dist/box2dweb-module.cjs.js",
+  "module": "dist/box2dweb-module.esm.js",
+  "types": "types/bo2dweb.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "rollup": "rollup -c rollup.config.js",
+    "watch": "npm run rollup -- -w",
+    "build": "ENV PROD=1 npm run rollup && echo done."
+  },
+  "keywords": [
+    "createjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tawaship/box2dweb-module.git"
+  },
+  "author": "tawaship",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tawaship/box2dweb-module/issues"
+  },
+  "homepage": "https://tawaship.github.io/box2dweb-module/",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-typescript": "^3.0.0",
+    "del": "^5.1.0",
+    "rollup": "^1.31.1",
+    "tslib": "^1.11.0",
+    "typescript": "4.2.4"
+  },
+  "dependencies": {
+    "box2dweb": "2.1.0-b"
+  }
+}
