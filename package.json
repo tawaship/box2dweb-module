@@ -1,6 +1,6 @@
 {
   "name": "@tawaship/box2dweb-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module for exporting box2dweb@2.1.0-b.",
   "main": "dist/box2dweb-module.cjs.js",
   "module": "dist/box2dweb-module.esm.js",

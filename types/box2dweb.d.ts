@@ -27,7 +27,7 @@ export namespace Common {
     /**
     * Color for debug drawing.  Each value has the range [0, 1].
     **/
-    export declare class b2Color {
+    export class b2Color {
 
         /**
         * Red
@@ -69,7 +69,7 @@ export namespace Common {
     /**
     * Controls Box2D global settings.
     **/
-    export declare class b2Settings {
+    export class b2Settings {
 
         /**
         * b2Assert is used internally to handle assertions. By default, calls are commented out to save performance, so they serve more as documentation than anything else.
@@ -220,7 +220,7 @@ export namespace Common {
         /**
         * A 2-by-2 matrix.  Stored in column-major order.
         **/
-        export declare class b2Mat22 {
+        export class b2Mat22 {
 
             /**
             * Column 1
@@ -330,7 +330,7 @@ export namespace Common {
         /**
         * A 3-by3 matrix.  Stored in column-major order.
         **/
-        export declare class b2Mat33 {
+        export class b2Mat33 {
 
             /**
             * Column 1
@@ -414,7 +414,7 @@ export namespace Common {
         /**
         * Math utility functions.
         **/
-        export declare class b2Math {
+        export class b2Math {
 
             /**
             * Determines if a number is valid.  A number is valid if it is finite.
@@ -676,7 +676,7 @@ export namespace Common {
         /**
         * This describes the motion of a body/shape for TOI computation. Shapes are defined with respect to the body origin, which may no coincide with the center of mass. However, to support dynamics we must interpolate the center of mass position.
         **/
-        export declare class b2Sweep {
+        export class b2Sweep {
 
             /**
             * World angle.
@@ -736,7 +736,7 @@ export namespace Common {
         /**
         * A transform contains translation and rotation. It is used to represent the position and orientation of rigid frames.
         **/
-        export declare class b2Transform {
+        export class b2Transform {
 
             /**
             * Transform position.
@@ -783,7 +783,7 @@ export namespace Common {
         /**
         * A 2D column vector.
         **/
-        export declare class b2Vec2 {
+        export class b2Vec2 {
 
             /**
             * x value
@@ -931,7 +931,7 @@ export namespace Common {
         /**
         * A 2D column vector with 3 elements.
         **/
-        export declare class b2Vec3 {
+        export class b2Vec3 {
 
             /**
             * x value.
@@ -1018,7 +1018,7 @@ export namespace Collision {
     /**
     * Axis aligned bounding box.
     **/
-    export declare class b2AABB {
+    export class b2AABB {
 
         /**
         * Lower bound.
@@ -1089,7 +1089,7 @@ export namespace Collision {
     /**
     * We use contact ids to facilitate warm starting.
     **/
-    export declare class b2ContactID {
+    export class b2ContactID {
 
         /**
         * Features
@@ -1122,7 +1122,7 @@ export namespace Collision {
     /**
     * This structure is used to report contact points.
     **/
-    export declare class b2ContactPoint {
+    export class b2ContactPoint {
 
         /**
         * The combined friction coefficient.
@@ -1173,7 +1173,7 @@ export namespace Collision {
     /**
     * Input for b2Distance. You have to option to use the shape radii in the computation. Even
     **/
-    export declare class b2DistanceInput {
+    export class b2DistanceInput {
 
         /**
         * Proxy A
@@ -1204,7 +1204,7 @@ export namespace Collision {
     /**
     * Output calculation for b2Distance.
     **/
-    export declare class b2DistanceOutput {
+    export class b2DistanceOutput {
 
         /**
         *  Calculated distance.
@@ -1230,7 +1230,7 @@ export namespace Collision {
     /**
     * A distance proxy is used by the GJK algorithm. It encapsulates any shape.
     **/
-    export declare class b2DistanceProxy {
+    export class b2DistanceProxy {
 
         /**
         * Count
@@ -1284,7 +1284,7 @@ export namespace Collision {
     /**
     * A dynamic tree arranges data in a binary tree to accelerate queries such as volume queries and ray casts. Leafs are proxies with an AABB. In the tree we expand the proxy AABB by b2_fatAABBFactor so that the proxy AABB is bigger than the client object. This allows the client object to move by small amounts without triggering a tree update. Nodes are pooled.
     **/
-    export declare class b2DynamicTree {
+    export class b2DynamicTree {
 
         /**
         * Constructing the tree initializes the node pool.
@@ -1356,7 +1356,7 @@ export namespace Collision {
     /**
     * The broad-phase is used for computing pairs and performing volume queries and ray casts. This broad-phase does not persist pairs. Instead, this reports potentially new pairs. It is up to the client to consume the new pairs and to track subsequent overlap.
     **/
-    export declare class b2DynamicTreeBroadPhase implements IBroadPhase {
+    export class b2DynamicTreeBroadPhase implements IBroadPhase {
 
         /**
         * Creates the dynamic tree broad phase.
@@ -1435,14 +1435,14 @@ export namespace Collision {
     * Empty declaration, used in many callbacks within b2DynamicTree.
     * Use the b2DynamicTree functions to extract data from this shell.
     **/
-    export declare class b2DynamicTreeNode {
+    export class b2DynamicTreeNode {
 
     }
 
     /**
     * A manifold for two touching convex shapes. Box2D supports multiple types of contact: - clip point versus plane with radius - point versus point with radius (circles) The local point usage depends on the manifold type: -e_circles: the local center of circleA -e_faceA: the center of faceA -e_faceB: the center of faceB Similarly the local normal usage: -e_circles: not used -e_faceA: the normal on polygonA -e_faceB: the normal on polygonB We store contacts in this way so that position correction can account for movement, which is critical for continuous physics. All contact scenarios must be expressed in one of these types. This structure is stored across time steps, so we keep it small.
     **/
-    export declare class b2Manifold {
+    export class b2Manifold {
 
         /**
         * Circles
@@ -1510,7 +1510,7 @@ export namespace Collision {
     /**
     * A manifold point is a contact point belonging to a contact manifold. It holds details related to the geometry and dynamics of the contact points. The local point usage depends on the manifold type: -e_circles: the local center of circleB -e_faceA: the local center of cirlceB or the clip point of polygonB -e_faceB: the clip point of polygonA This structure is stored across time steps, so we keep it small. Note: the impulses are used for internal caching and may not provide reliable contact forces, especially for high speed collisions.
     **/
-    export declare class b2ManifoldPoint {
+    export class b2ManifoldPoint {
 
         /**
         * Contact ID.
@@ -1552,7 +1552,7 @@ export namespace Collision {
     /**
     * An oriented bounding box.
     **/
-    export declare class b2OBB {
+    export class b2OBB {
 
         /**
         * The local centroid.
@@ -1573,7 +1573,7 @@ export namespace Collision {
     /**
     * Ray cast input data.
     **/
-    export declare class b2RayCastInput {
+    export class b2RayCastInput {
 
         /**
         * Truncate the ray to reach up to this fraction from p1 to p2
@@ -1602,7 +1602,7 @@ export namespace Collision {
     /**
     * Results of a ray cast.
     **/
-    export declare class b2RayCastOutput {
+    export class b2RayCastOutput {
 
         /**
         * The fraction between p1 and p2 that the collision occurs at.
@@ -1618,7 +1618,7 @@ export namespace Collision {
     /**
     * A line in space between two given vertices.
     **/
-    export declare class b2Segment {
+    export class b2Segment {
 
         /**
         * The starting point.
@@ -1665,7 +1665,7 @@ export namespace Collision {
     /**
     * Used to warm start b2Distance. Set count to zero on first call.
     **/
-    export declare class b2SimplexCache {
+    export class b2SimplexCache {
 
         /**
         * Number in cache.
@@ -1691,7 +1691,7 @@ export namespace Collision {
     /**
     * Inpute parameters for b2TimeOfImpact
     **/
-    export declare class b2TOIInput {
+    export class b2TOIInput {
 
         /**
         * Proxy A
@@ -1722,7 +1722,7 @@ export namespace Collision {
     /**
     * This is used to compute the current state of a contact manifold.
     **/
-    export declare class b2WorldManifold {
+    export class b2WorldManifold {
 
         /**
         * World vector pointing from A to B.
@@ -1758,7 +1758,7 @@ export namespace Collision {
     /**
     * We use contact ids to facilitate warm starting.
     **/
-    export declare class Features {
+    export class Features {
 
         /**
         * A value of 1 indicates that the reference edge is on shape2.
@@ -1857,7 +1857,7 @@ export namespace Collision {
         /**
         * A circle shape.
         **/
-        export declare class b2CircleShape extends b2Shape {
+        export class b2CircleShape extends b2Shape {
 
             /**
             * Creates a new circle shape.
@@ -1952,7 +1952,7 @@ export namespace Collision {
         /**
         * This structure is used to build edge shapes.
         **/
-        export declare class b2EdgeChainDef {
+        export class b2EdgeChainDef {
 
             /**
             * Whether to create an extra edge between the first and last vertices.
@@ -1978,7 +1978,7 @@ export namespace Collision {
         /**
         * An edge shape.
         **/
-        export declare class b2EdgeShape extends b2Shape {
+        export class b2EdgeShape extends b2Shape {
 
             /**
             * Creates a new edge shape.
@@ -2131,7 +2131,7 @@ export namespace Collision {
         /**
         * This holds the mass data computed for a shape.
         **/
-        export declare class b2MassData {
+        export class b2MassData {
 
             /**
             * The position of the shape's centroid relative to the shape's origin.
@@ -2152,7 +2152,7 @@ export namespace Collision {
         /**
         * Convex polygon. The vertices must be in CCW order for a right-handed coordinate system with the z-axis coming out of the screen.
         **/
-        export declare class b2PolygonShape extends b2Shape {
+        export class b2PolygonShape extends b2Shape {
 
             /**
             * Creates a b2PolygonShape from a vertices list. This assumes the vertices define a convex polygon.  It is assumed that the exterior is the the right of each edge.
@@ -2332,7 +2332,7 @@ export namespace Collision {
         * A shape is used for collision detection. Shapes are created in b2Body. You can use shape for collision detection before they are attached to the world.
         * Warning: you cannot reuse shapes.
         **/
-        export declare class b2Shape {
+        export class b2Shape {
 
             /**
             * Return value for TestSegment indicating a hit.
@@ -2446,7 +2446,7 @@ export namespace Dynamics {
     /**
     * A rigid body.
     **/
-    export declare class b2Body {
+    export class b2Body {
 
         /**
         * Dynamic Body
@@ -2827,7 +2827,7 @@ export namespace Dynamics {
     /**
     * A body definition holds all the data needed to construct a rigid body. You can safely re-use body definitions.
     **/
-    export declare class b2BodyDef {
+    export class b2BodyDef {
 
         /**
         * Does this body start out active?
@@ -2906,7 +2906,7 @@ export namespace Dynamics {
     /**
     * Implement this class to provide collision filtering. In other words, you can implement this class if you want finer control over contact creation.
     **/
-    export declare class b2ContactFilter {
+    export class b2ContactFilter {
 
         /**
         * Return true if the given fixture should be considered for ray intersection. By default, userData is cast as a b2Fixture and collision is resolved according to ShouldCollide.
@@ -2931,7 +2931,7 @@ export namespace Dynamics {
     /**
     * Contact impulses for reporting. Impulses are used instead of forces because sub-step forces may approach infinity for rigid body collisions. These match up one-to-one with the contact points in b2Manifold.
     **/
-    export declare class b2ContactImpulse {
+    export class b2ContactImpulse {
 
         /**
         * Normal impulses.
@@ -2948,7 +2948,7 @@ export namespace Dynamics {
     * Implement this class to get contact information. You can use these results for things like sounds and game logic. You can also get contact results by traversing the contact lists after the time step. However, you might miss some contacts because continuous physics leads to sub-stepping. Additionally you may receive multiple callbacks for the same contact in a single time step. You should strive to make your callbacks efficient because there may be many callbacks per time step.
     * @warning You cannot create/destroy Box2D entities inside these callbacks.
     **/
-    export declare class b2ContactListener {
+    export class b2ContactListener {
 
         /**
         * Called when two fixtures begin to touch.
@@ -2984,7 +2984,7 @@ export namespace Dynamics {
     *    var debugDraw = new Dynamics.b2DebugDraw();
     *    debugDraw.SetSprite(document.GetElementsByTagName("canvas")[0].getContext("2d"));
     **/
-    export declare class b2DebugDraw {
+    export class b2DebugDraw {
 
         /**
         * Draw axis aligned bounding boxes.
@@ -3170,7 +3170,7 @@ export namespace Dynamics {
     /**
     * Joints and shapes are destroyed when their associated body is destroyed. Implement this listener so that you may nullify references to these joints and shapes.
     **/
-    export declare class b2DestructionListener {
+    export class b2DestructionListener {
 
         /**
         * Called when any fixture is about to be destroyed due to the destruction of its parent body.
@@ -3188,7 +3188,7 @@ export namespace Dynamics {
     /**
     * This holds contact filtering data.
     **/
-    export declare class b2FilterData {
+    export class b2FilterData {
 
         /**
         * The collision category bits. Normally you would just set one bit.
@@ -3216,7 +3216,7 @@ export namespace Dynamics {
     * A fixture is used to attach a shape to a body for collision detection. A fixture inherits its transform from its parent. Fixtures hold additional non-geometric data such as friction, collision filters, etc. Fixtures are created via b2Body::CreateFixture.
     * @warning  you cannot reuse fixtures.
     **/
-    export declare class b2Fixture {
+    export class b2Fixture {
 
         /**
         * Get the fixture's AABB. This AABB may be enlarge and/or stale. If you need a more accurate AABB, compute it using the shape and the body transform.
@@ -3346,7 +3346,7 @@ export namespace Dynamics {
     /**
     * A fixture definition is used to create a fixture. This class defines an abstract fixture definition. You can reuse fixture definitions safely.
     **/
-    export declare class b2FixtureDef {
+    export class b2FixtureDef {
 
         /**
         * The density, usually in kg/m^2.
@@ -3392,7 +3392,7 @@ export namespace Dynamics {
     /**
     * The world class manages all physics entities, dynamic simulation, and asynchronous queries.
     **/
-    export declare class b2World {
+    export class b2World {
 
         /**
         * Locked
@@ -3659,7 +3659,7 @@ export namespace Dynamics {
         /**
         * The class manages contact between two shapes. A contact exists for each overlapping AABB in the broad-phase (except if filtered). Therefore a contact object may exist that has no contact points.
         **/
-        export declare class b2Contact {
+        export class b2Contact {
 
             /**
             * Constructor
@@ -3742,7 +3742,7 @@ export namespace Dynamics {
         /**
         * A contact edge is used to connect bodies and contacts together in a contact graph where each body is a node and each contact is an edge. A contact edge belongs to a doubly linked list maintained in each attached body. Each contact has two contact nodes, one for each attached body.
         **/
-        export declare class b2ContactEdge {
+        export class b2ContactEdge {
 
             /**
             * Contact.
@@ -3768,7 +3768,7 @@ export namespace Dynamics {
         /**
         * This structure is used to report contact point results.
         **/
-        export declare class b2ContactResult {
+        export class b2ContactResult {
 
             /**
             * The contact id identifies the features in contact.
@@ -3812,7 +3812,7 @@ export namespace Dynamics {
         /**
         * Base class for controllers. Controllers are a convience for encapsulating common per-step functionality.
         **/
-        export declare class b2Controller {
+        export class b2Controller {
 
             /**
             * Body count.
@@ -3875,7 +3875,7 @@ export namespace Dynamics {
         /**
         * Controller Edge.
         **/
-        export declare class b2ControllerEdge {
+        export class b2ControllerEdge {
 
             /**
             * Body.
@@ -3911,7 +3911,7 @@ export namespace Dynamics {
         /**
         * Calculates buoyancy forces for fluids in the form of a half plane.
         **/
-        export declare class b2BuoyancyController extends b2Controller {
+        export class b2BuoyancyController extends b2Controller {
 
             /**
             * Linear drag co-efficient.
@@ -3969,7 +3969,7 @@ export namespace Dynamics {
         /**
         * Applies an acceleration every frame, like gravity
         **/
-        export declare class b2ConstantAccelController extends b2Controller {
+        export class b2ConstantAccelController extends b2Controller {
 
             /**
             * The acceleration to apply.
@@ -3985,7 +3985,7 @@ export namespace Dynamics {
         /**
         * Applies an acceleration every frame, like gravity.
         **/
-        export declare class b2ConstantForceController extends b2Controller {
+        export class b2ConstantForceController extends b2Controller {
 
             /**
             * The acceleration to apply.
@@ -4001,7 +4001,7 @@ export namespace Dynamics {
         /**
         * Applies simplified gravity between every pair of bodies.
         **/
-        export declare class b2GravityController extends b2Controller {
+        export class b2GravityController extends b2Controller {
 
             /**
             * Specifies the strength of the gravitation force.
@@ -4023,7 +4023,7 @@ export namespace Dynamics {
         /**
         * Applies top down linear damping to the controlled bodies The damping is calculated by multiplying velocity by a matrix in local co-ordinates.
         **/
-        export declare class b2TensorDampingController extends b2Controller {
+        export class b2TensorDampingController extends b2Controller {
 
             /**
             * Set this to a positive number to clamp the maximum amount of damping done.
@@ -4055,7 +4055,7 @@ export namespace Dynamics {
         /**
         * The base joint class. Joints are used to constraint two bodies together in various fashions. Some joints also feature limits and motors.
         **/
-        export declare class b2Joint {
+        export class b2Joint {
 
             /**
             * Get the anchor point on bodyA in world coordinates.
@@ -4129,7 +4129,7 @@ export namespace Dynamics {
         /**
         * Joint definitions are used to construct joints.
         **/
-        export declare class b2JointDef {
+        export class b2JointDef {
 
             /**
             * The first attached body.
@@ -4165,7 +4165,7 @@ export namespace Dynamics {
         /**
         * A joint edge is used to connect bodies and joints together in a joint graph where each body is a node and each joint is an edge. A joint edge belongs to a doubly linked list maintained in each attached body. Each joint has two joint nodes, one for each attached body.
         **/
-        export declare class b2JointEdge {
+        export class b2JointEdge {
 
             /**
             * The joint.
@@ -4191,7 +4191,7 @@ export namespace Dynamics {
         /**
         * A distance joint constrains two points on two bodies to remain at a fixed distance from each other. You can view this as a massless, rigid rod.
         **/
-        export declare class b2DistanceJoint extends b2Joint {
+        export class b2DistanceJoint extends b2Joint {
 
             /**
             * Get the anchor point on bodyA in world coordinates.
@@ -4260,7 +4260,7 @@ export namespace Dynamics {
         * Distance joint definition. This requires defining an anchor point on both bodies and the non-zero length of the distance joint. The definition uses local anchor points so that the initial configuration can violate the constraint slightly. This helps when saving and loading a game.
         * @warning Do not use a zero or short length.
         **/
-        export declare class b2DistanceJointDef extends b2JointDef {
+        export class b2DistanceJointDef extends b2JointDef {
 
             /**
             * The damping ratio. 0 = no damping, 1 = critical damping.
@@ -4305,7 +4305,7 @@ export namespace Dynamics {
         /**
         * Friction joint. This is used for top-down friction. It provides 2D translational friction and angular friction.
         **/
-        export declare class b2FrictionJoint extends b2Joint {
+        export class b2FrictionJoint extends b2Joint {
 
             /**
             * Angular mass.
@@ -4370,7 +4370,7 @@ export namespace Dynamics {
         /**
         * Friction joint defintion.
         **/
-        export declare class b2FrictionJointDef extends b2JointDef {
+        export class b2FrictionJointDef extends b2JointDef {
 
             /**
             * The local anchor point relative to body1's origin.
@@ -4410,7 +4410,7 @@ export namespace Dynamics {
         * A gear joint is used to connect two joints together. Either joint can be a revolute or prismatic joint. You specify a gear ratio to bind the motions together: coordinate1 + ratio coordinate2 = constant The ratio can be negative or positive. If one joint is a revolute joint and the other joint is a prismatic joint, then the ratio will have units of length or units of 1/length.
         * @warning The revolute and prismatic joints must be attached to fixed bodies (which must be body1 on those joints).
         **/
-        export declare class b2GearJoint extends b2Joint {
+        export class b2GearJoint extends b2Joint {
 
             /**
             * Get the anchor point on bodyA in world coordinates.
@@ -4454,7 +4454,7 @@ export namespace Dynamics {
         /**
         * Gear joint definition. This definition requires two existing revolute or prismatic joints (any combination will work). The provided joints must attach a dynamic body to a static body.
         **/
-        export declare class b2GearJointDef extends b2JointDef {
+        export class b2GearJointDef extends b2JointDef {
 
             /**
             * The first revolute/prismatic joint attached to the gear joint.
@@ -4480,7 +4480,7 @@ export namespace Dynamics {
         /**
         * A line joint. This joint provides one degree of freedom: translation along an axis fixed in body1. You can use a joint limit to restrict the range of motion and a joint motor to drive the motion or to model joint friction.
         **/
-        export declare class b2LineJoint extends b2Joint {
+        export class b2LineJoint extends b2Joint {
 
             /**
             * Enable/disable the joint limit.
@@ -4597,7 +4597,7 @@ export namespace Dynamics {
         /**
         * Line joint definition. This requires defining a line of motion using an axis and an anchor point. The definition uses local anchor points and a local axis so that the initial configuration can violate the constraint slightly. The joint translation is zero when the local anchor points coincide in world space. Using local anchors and a local axis helps when saving and loading a game.
         **/
-        export declare class b2LineJointDef extends b2JointDef {
+        export class b2LineJointDef extends b2JointDef {
 
             /**
             * Enable/disable the joint limit.
@@ -4662,7 +4662,7 @@ export namespace Dynamics {
         /**
         * A mouse joint is used to make a point on a body track a specified world point. This a soft constraint with a maximum force. This allows the constraint to stretch and without applying huge forces. Note: this joint is not fully documented as it is intended primarily for the testbed. See that for more instructions.
         **/
-        export declare class b2MouseJoint extends b2Joint {
+        export class b2MouseJoint extends b2Joint {
 
             /**
             * Get the anchor point on bodyA in world coordinates.
@@ -4742,7 +4742,7 @@ export namespace Dynamics {
         /**
         * Mouse joint definition. This requires a world target point, tuning parameters, and the time step.
         **/
-        export declare class b2MouseJointDef extends b2JointDef {
+        export class b2MouseJointDef extends b2JointDef {
 
             /**
             * The damping ratio. 0 = no damping, 1 = critical damping.
@@ -4768,7 +4768,7 @@ export namespace Dynamics {
         /**
         * A prismatic joint. This joint provides one degree of freedom: translation along an axis fixed in body1. Relative rotation is prevented. You can use a joint limit to restrict the range of motion and a joint motor to drive the motion or to model joint friction.
         **/
-        export declare class b2PrismaticJoint extends b2Joint {
+        export class b2PrismaticJoint extends b2Joint {
 
             /**
             * Enable/disable the joint limit.
@@ -4879,7 +4879,7 @@ export namespace Dynamics {
         /**
         * Prismatic joint definition. This requires defining a line of motion using an axis and an anchor point. The definition uses local anchor points and a local axis so that the initial configuration can violate the constraint slightly. The joint translation is zero when the local anchor points coincide in world space. Using local anchors and a local axis helps when saving and loading a game.
         **/
-        export declare class b2PrismaticJointDef extends b2JointDef {
+        export class b2PrismaticJointDef extends b2JointDef {
 
             /**
             * Enable/disable the joint limit.
@@ -4949,7 +4949,7 @@ export namespace Dynamics {
         /**
         * The pulley joint is connected to two bodies and two fixed ground points. The pulley supports a ratio such that: length1 + ratio length2 <= constant Yes, the force transmitted is scaled by the ratio. The pulley also enforces a maximum length limit on both sides. This is useful to prevent one side of the pulley hitting the top.
         **/
-        export declare class b2PulleyJoint extends b2Joint {
+        export class b2PulleyJoint extends b2Joint {
 
             /**
             * Get the anchor point on bodyA in world coordinates.
@@ -5006,7 +5006,7 @@ export namespace Dynamics {
         /**
         * Pulley joint definition. This requires two ground anchors, two dynamic body anchor points, max lengths for each side, and a pulley ratio.
         **/
-        export declare class b2PulleyJointDef extends b2JointDef {
+        export class b2PulleyJointDef extends b2JointDef {
 
             /**
             * The first ground anchor in world coordinates. This point never moves.
@@ -5073,7 +5073,7 @@ export namespace Dynamics {
         /**
         * A revolute joint constrains to bodies to share a common point while they are free to rotate about the point. The relative rotation about the shared point is the joint angle. You can limit the relative rotation with a joint limit that specifies a lower and upper angle. You can use a motor to drive the relative rotation about the shared point. A maximum motor torque is provided so that infinite forces are not generated.
         **/
-        export declare class b2RevoluteJoint extends b2Joint {
+        export class b2RevoluteJoint extends b2Joint {
 
             /**
             * Enable/disable the joint limit.
@@ -5184,7 +5184,7 @@ export namespace Dynamics {
         /**
         * Revolute joint definition. This requires defining an anchor point where the bodies are joined. The definition uses local anchor points so that the initial configuration can violate the constraint slightly. You also need to specify the initial relative angle for joint limits. This helps when saving and loading a game. The local anchor points are measured from the body's origin rather than the center of mass because: 1. you might not know where the center of mass will be. 2. if you add/remove shapes from a body and recompute the mass, the joints will be broken.
         **/
-        export declare class b2RevoluteJointDef extends b2JointDef {
+        export class b2RevoluteJointDef extends b2JointDef {
 
             /**
             * A flag to enable joint limits.
@@ -5248,7 +5248,7 @@ export namespace Dynamics {
         /**
         * A weld joint essentially glues two bodies together. A weld joint may distort somewhat because the island constraint solver is approximate.
         **/
-        export declare class b2WeldJoint extends b2Joint {
+        export class b2WeldJoint extends b2Joint {
 
             /**
             * Get the anchor point on bodyA in world coordinates.
@@ -5280,7 +5280,7 @@ export namespace Dynamics {
         /**
         * Weld joint definition. You need to specify local anchor points where they are attached and the relative body angle. The position of the anchor points is important for computing the reaction torque.
         **/
-        export declare class b2WeldJointDef extends b2JointDef {
+        export class b2WeldJointDef extends b2JointDef {
 
             /**
             * The local anchor point relative to body1's origin.
