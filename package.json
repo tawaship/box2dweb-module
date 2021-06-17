@@ -14,7 +14,7 @@
     "build": "ENV PROD=1 npm run rollup && echo done."
   },
   "keywords": [
-    "createjs"
+    "box2dweb"
   ],
   "repository": {
     "type": "git",
