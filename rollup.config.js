@@ -38,6 +38,7 @@ export default (async () => {
 					sourcemap: true
 				}
 			],
+			external: ['box2dweb'],
 			watch: {
 				clearScreen: false
 			},

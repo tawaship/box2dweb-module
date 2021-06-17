@@ -4,7 +4,7 @@
   "description": "A module for exporting box2dweb@2.1.0-b.",
   "main": "dist/box2dweb-module.cjs.js",
   "module": "dist/box2dweb-module.esm.js",
-  "types": "types/bo2dweb.d.ts",
+  "types": "types/box2dweb.d.ts",
   "directories": {
     "lib": "lib"
   },

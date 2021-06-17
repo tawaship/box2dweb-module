@@ -3,12 +3,9 @@
   "compilerOptions": {
     "target": "ES6",
     "moduleResolution": "node",
-    "strict": true,
+    "strict": false,
     "declaration": true,
     "outDir": "./types"
   },
-  "files": [
-    "types/box2dweb.d.ts"
-  ],
   "exclude": ["node_modules", "src/**/*.d.ts"]
 }
